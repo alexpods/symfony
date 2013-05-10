@@ -149,8 +149,8 @@ class NamespacedAttributeBag extends AttributeBag
      */
     protected function resolveKey($name)
     {
-        if (strpos($name, $this->namespaceCharacter) !== false) {
-            $name = substr($name, strrpos($name, $this->namespaceCharacter)+1, strlen($name));
+        if (false !== $post = strrpos($name, $this->namespaceCharacter)) {
+            $name = substr($name, $pos+1);
         }
 
         return $name;
